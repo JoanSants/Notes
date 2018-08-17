@@ -19,5 +19,5 @@ if (command === 'list'){
 }else if(command === 'read'){
     note.readNote(argv.title);
 }else{
-    console.log('command not recognized');
+    console.log('aaa command not recognized');
 }
