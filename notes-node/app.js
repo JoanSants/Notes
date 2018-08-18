@@ -21,9 +21,12 @@ if (command === 'list'){
         console.log("Invalid Title");
     }
 }else if(command === 'remove'){
-    note.removeNote(argv.title);
+    note = notes.removeNote(argv.title);
+    message = note ? 'Note removed' : 'Note not found';
+    console.log(message);
+    
 }else if(command === 'read'){
-    note.readNote(argv.title);
+    notes.readNote(argv.title);
 }else{
     console.log('aaa command not recognized');
 }
