@@ -16,17 +16,21 @@ if (command === 'list'){
     note = notes.addNote(argv.title, argv.body);
     if(note){
         console.log("Note created");
-        console.log(`The title is ${note.title} and the text is ${note.body}`)
+        notes.logNote(note);
     }else{
         console.log("Invalid Title");
     }
 }else if(command === 'remove'){
     note = notes.removeNote(argv.title);
     message = note ? 'Note removed' : 'Note not found';
-    console.log(message);
-    
+    console.log(message);    
 }else if(command === 'read'){
-    notes.readNote(argv.title);
+    note = notes.readNote(argv.title);
+    if(note){
+        notes.logNote(note);
+    }else{
+        console.log("Note not found")
+    }
 }else{
-    console.log('aaa command not recognized');
+    console.log('command not recognized');
 }
