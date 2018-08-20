@@ -11,7 +11,9 @@ var command = argv._[0];
 console.log(yargs.argv);
 
 if (command === 'list'){
-    note.getAll();
+    allNotes = notes.getAll();
+    console.log(`Listing ${allNotes.length} note(s).`)
+    allNotes.forEach((note) => notes.logNote(note));
 }else if(command === 'add'){
     note = notes.addNote(argv.title, argv.body);
     if(note){
