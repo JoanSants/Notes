@@ -5,10 +5,31 @@ console.log("Starting app.js");
 const yargs = require('yargs');
 
 const notes = require('./notes')
+const titleOptions = {
+    describe: 'Title of note',
+    demand: true,
+    alias:'t'
+}
 
-const argv = yargs.argv;
+const bodyOptions = {
+    describe: 'The content of Note',
+    demand:true,
+    alias:'b'
+}
+const argv = yargs
+.command('add','Add a new note',{
+    title:titleOptions,
+    body:bodyOptions
+})
+.command('list','Get all Notes')
+.command('remove','Remove a Note',{
+    title:titleOptions
+}).command('read','Read a note',{
+    title:titleOptions
+})
+.help()
+.argv;
 var command = argv._[0];
-console.log(yargs.argv);
 
 if (command === 'list'){
     allNotes = notes.getAll();
