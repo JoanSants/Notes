@@ -1,4 +1,3 @@
-console.log("Starting node.js")
 const fs = require('fs');
 
 var fetchNotes = () => {
@@ -27,7 +26,7 @@ var addNote = (title,body) => {
     var note = {
         title,
         body
-    }   
+    }
 
     var duplicateNotes = notes.filter((note) => note.title === title);
 
